@@ -1,0 +1,6 @@
+[core]
+    remote = origin
+['remote "myremote"']
+    url = s3://spotify-hybrid-recsys-remote
+['remote "origin"']
+    url = https://dagshub.com/satyajeetrai007/Hybrid-Recommender-System.dvc
