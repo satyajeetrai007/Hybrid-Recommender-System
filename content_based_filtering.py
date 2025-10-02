@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import joblib
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, OneHotEncoder
-from category_encoders.count import CountEncoder
+from category_encoders import CountEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -100,6 +100,8 @@ def calculate_similarity_scores(input_vector, data):
 
 
 def content_recommendation(song_name,artist_name,songs_data, transformed_data, k=10):
+
+
     """
     Recommends top k songs similar to the given song based on content-based filtering.
 
