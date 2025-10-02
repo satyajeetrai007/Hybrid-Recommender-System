@@ -27,3 +27,11 @@ stages:
       - data/interaction/track_ids.npy
       - data/interaction/collab_filtered_data.csv
       - data/interaction/interaction_matrix.npz
+
+  transformed_filtered_data:
+    cmd: python transform_filtered_data.py
+    deps:
+      - transform_filtered_data.py
+      - data/interaction/collab_filtered_data.csv
+    outs:
+      - data/transformed/transformed_hybrid_data.npz
