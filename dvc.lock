@@ -1,0 +1,70 @@
+schema: '2.0'
+stages:
+  data_cleaning:
+    cmd: python data_cleaning.py
+    deps:
+    - path: data/Music Info.csv
+      hash: md5
+      md5: e63b74919a3cdada5c804df4666391c9
+      size: 14985870
+    - path: data_cleaning.py
+      hash: md5
+      md5: 0f718c42d59ada6d9bcdaf2fc91ebb4c
+      size: 2106
+    outs:
+    - path: data/cleaned/cleaned_data.csv
+      hash: md5
+      md5: ad73ab9b7c97fed0f3cc26fc9b24f8c6
+      size: 13712182
+  transform_data:
+    cmd: python content_based_filtering.py
+    deps:
+    - path: content_based_filtering.py
+      hash: md5
+      md5: 80dbf5fe82d9182cf8e97affabee4f94
+      size: 6100
+    - path: data/cleaned/cleaned_data.csv
+      hash: md5
+      md5: ad73ab9b7c97fed0f3cc26fc9b24f8c6
+      size: 13712182
+    - path: data_cleaning.py
+      hash: md5
+      md5: 0f718c42d59ada6d9bcdaf2fc91ebb4c
+      size: 2106
+    outs:
+    - path: data/transformed/transformed_data.npz
+      hash: md5
+      md5: 2d570319e7014b4a27e9e8c6b21bbe2e
+      size: 4523508
+    - path: data/transformed/transformer.joblib
+      hash: md5
+      md5: 708922275facafab3a6054392dc4ba02
+      size: 135197
+  interaction_data:
+    cmd: python collaborative_filtering.py
+    deps:
+    - path: collaborative_filtering.py
+      hash: md5
+      md5: 92f232aa6abf34ac3ea60122776ed690
+      size: 5421
+    - path: data/User Listening History.csv
+      hash: md5
+      md5: 3a12e713844195171c7040c051d6d4ae
+      size: 602515573
+    - path: data/cleaned/cleaned_data.csv
+      hash: md5
+      md5: ad73ab9b7c97fed0f3cc26fc9b24f8c6
+      size: 13712182
+    outs:
+    - path: data/interaction/collab_filtered_data.csv
+      hash: md5
+      md5: f0f182d757a9837caa7ff619cab9ffd0
+      size: 8260460
+    - path: data/interaction/interaction_matrix.npz
+      hash: md5
+      md5: 3dfe9b0c768b7e2a048818128e1a2e25
+      size: 32311353
+    - path: data/interaction/track_ids.npy
+      hash: md5
+      md5: 4a52e4cb6bae6b0126c1344dac7c7686
+      size: 640058

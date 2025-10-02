@@ -6,11 +6,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # set paths
 # output paths
-track_ids_save_path = "data/track_ids.npy"
-filtered_data_save_path = "data/collab_filtered_data.csv"
-interaction_matrix_save_path = "data/interaction_matrix.npz"
+# output paths
+track_ids_save_path = "data/interaction/track_ids.npy"
+filtered_data_save_path = "data/interaction/collab_filtered_data.csv"
+interaction_matrix_save_path = "data/interaction/interaction_matrix.npz"
+
 # input paths
-songs_data_path = "data/cleaned_data.csv"
+songs_data_path = "data/cleaned/cleaned_data.csv"
 user_listening_history_data_path = "data/User Listening History.csv"
 
 

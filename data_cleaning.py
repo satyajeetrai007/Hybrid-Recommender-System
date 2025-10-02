@@ -66,7 +66,7 @@ def main(data_path):
     cleaned_data = clean_data(data)
     
     # saved cleaned data
-    cleaned_data.to_csv("data/cleaned_data.csv",index=False)
+    cleaned_data.to_csv("data/cleaned/cleaned_data.csv",index=False)
     
 
 if __name__ == "__main__":
